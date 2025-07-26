@@ -49,6 +49,10 @@ theme:
     repo: fontawesome/brands/github
     edit: material/pencil
     view: material/eye
+  extra_css:
+    - stylesheets/extra.css
+  extra_javascript:
+    - javascripts/link-preview.js
 
 # Plugins Configuration
 plugins:

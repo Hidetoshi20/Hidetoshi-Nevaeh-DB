@@ -1,0 +1,220 @@
+/* 链接预览样式 */
+.link-preview {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: var(--md-primary-fg-color);
+  cursor: pointer;
+}
+
+.link-preview:hover {
+  text-decoration: underline;
+}
+
+.link-preview::after {
+  content: "🔗";
+  margin-left: 4px;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* 小红书链接特殊样式 */
+.link-preview[href*="xiaohongshu.com"]::after {
+  content: "📱";
+}
+
+/* 外部链接样式 */
+.link-preview[href^="http"]::after {
+  content: "↗";
+}
+
+/* iframe预览容器 */
+.iframe-preview-container {
+  position: relative;
+  margin: 16px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.iframe-preview-container iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+
+/* iframe预览头部 */
+.iframe-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--md-primary-fg-color--lightest);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.iframe-preview-title {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: var(--md-primary-fg-color);
+}
+
+.iframe-preview-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.iframe-preview-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  color: var(--md-default-fg-color);
+  transition: background-color 0.2s;
+}
+
+.iframe-preview-btn:hover {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.iframe-preview-btn.close {
+  color: #d32f2f;
+}
+
+.iframe-preview-btn.open {
+  color: #1976d2;
+}
+
+/* 链接预览卡片 */
+.link-card {
+  display: block;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  background: var(--md-default-bg-color);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.link-card:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.link-card-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--md-primary-fg-color);
+}
+
+.link-card-description {
+  font-size: 0.9em;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 8px;
+}
+
+.link-card-url {
+  font-size: 0.8em;
+  color: var(--md-default-fg-color--lighter);
+  word-break: break-all;
+}
+
+/* 食谱链接特殊样式 */
+.recipe-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  background: var(--md-primary-fg-color--lightest);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--md-primary-fg-color);
+  font-size: 0.9em;
+  margin: 2px;
+}
+
+.recipe-link:hover {
+  background: var(--md-primary-fg-color--light);
+  color: var(--md-primary-fg-color);
+}
+
+.recipe-link::before {
+  content: "🍳";
+  margin-right: 4px;
+}
+
+/* 加载状态 */
+.iframe-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--md-default-fg-color--light);
+}
+
+.iframe-loading::after {
+  content: "加载中...";
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 错误状态 */
+.iframe-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #d32f2f;
+  background: #ffebee;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+.iframe-error::before {
+  content: "⚠️";
+  margin-right: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .iframe-preview-container iframe {
+    height: 300px;
+  }
+
+  .link-card {
+    padding: 8px;
+  }
+
+  .link-card-title {
+    font-size: 0.9em;
+  }
+
+  .link-card-description {
+    font-size: 0.8em;
+  }
+
+  .iframe-preview-header {
+    padding: 6px 8px;
+  }
+
+  .iframe-preview-title {
+    font-size: 0.8em;
+  }
+}
